@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+
+
+    // Generate a random number between 1 and 100
+    int secret = rand() % 100 + 1;
+
+    // Declare a variable to store the user's guess
+    int guess;
+
+    // Declare a variable to count the number of tries
+    int tries = 0;
+
+    // Print a welcome message
+    cout << "Welcome to the guessing game!" << endl;
+    cout << "I have chosen a number between 1 and 100." << endl;
+    cout << "Can you guess it?" << endl;
+
+    // Repeat until the user guesses the secret number
+    do
+    {
+        // Prompt the user to enter a guess
+        cout << "Enter your guess: ";
+        cin >> guess;
+
+        // Increment the number of tries
+        tries++;
+
+        // Check if the guess is valid
+        if (guess < 1 || guess > 100)
+        {
+            // Print an error message
+            cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+        }
+        else if (guess < secret)
+        {
+            // Print a hint
+            cout << "Too low. Try again." << endl;
+        }
+        else if (guess > secret)
+        {
+            // Print a hint
+            cout << "Too high. Try again." << endl;
+        }
+        else
+        {
+            // Print a congratulation message
+            cout << "You got it! The number was " << secret << "." << endl;
+            cout << "It took you " << tries << " tries." << endl;
+            break; // Exit the loop
+        }
+    } while (true); // Loop indefinitely
+
+    return 0; // End the program
+}
